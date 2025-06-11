@@ -16,5 +16,3 @@ python-dotenv==1.0.0
 beautifulsoup4==4.12.2
 pydub==0.25.1
 edge-tts
-git+https://github.com/nari-labs/dia.git
-edge-tts
