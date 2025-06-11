@@ -1,31 +1,39 @@
-name: Daily YouTube Health Video Automation
+name: Daily YouTube Video Automation
 
 on:
   schedule:
-    - cron: '30 3 * * *' # 9:00 AM IST daily (GitHub uses UTC)
-  workflow_dispatch: # Allow manual run for testing
+    - cron: '30 3 * * *'  # 9:00 AM IST daily
+  workflow_dispatch:  # Manual trigger for testing
 
 jobs:
-  daily-video-job:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 📦 Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: 🐍 Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: 📥 Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        sudo apt update && sudo apt install -y ffmpeg
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install --upgrade pip
+          pip install git+https://github.com/nari-labs/dia.git
+          pip install -r requirements.txt
 
-    - name: 🤖 Run Daily Automation
-      env:
-        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-      run: python main.py
+      - name: Run YouTube Automation
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          BING_COOKIE: ${{ secrets.BING_COOKIE }}
+          USE_DIA_TTS: "true"
+        run: |
+          python main.py
