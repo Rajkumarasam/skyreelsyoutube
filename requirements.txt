@@ -15,16 +15,6 @@ moviepy==1.0.3
 Pillow==10.1.0
 pydub==0.25.1
 
-# SkyReels V2 for Video Generation
-git+https://github.com/SkyworkAI/SkyReels.git   # Official repo if needed
-diffusers
-transformers
-accelerate
-einops
-torch
-scipy
-tqdm
-
 # YouTube Upload
 google-api-python-client==2.108.0
 google-auth-httplib2==0.1.1
@@ -33,5 +23,4 @@ google-auth-oauthlib==1.1.0
 # Utilities
 requests==2.32.3
 python-dotenv==1.0.0
-schedule==1.2.0
 beautifulsoup4==4.12.2
