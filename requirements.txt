@@ -1,0 +1,17 @@
+torch>=2.0.1
+diffusers>=0.17.1
+transformers>=4.34.0
+accelerate>=0.23.0
+einops
+moviepy==1.0.3
+google-api-python-client==2.108.0
+google-auth-httplib2==0.1.1
+google-auth-oauthlib==1.1.0
+edge-tts==7.0.2
+selenium==4.33.0
+webdriver-manager==4.0.2
+requests==2.32.3
+schedule==1.2.0
+python-dotenv==1.0.0
+beautifulsoup4==4.12.2
+pydub==0.25.1
