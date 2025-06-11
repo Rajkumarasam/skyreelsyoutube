@@ -4,6 +4,7 @@ transformers>=4.34.0
 diffusers>=0.17.1
 accelerate>=0.23.0
 einops
+torch>=2.0.1
 
 # TTS - Nari Labs Dia + fallback
 git+https://github.com/nari-labs/dia.git 
@@ -13,6 +14,16 @@ edge-tts==7.0.2
 moviepy==1.0.3
 Pillow==10.1.0
 pydub==0.25.1
+
+# SkyReels V2 for Video Generation
+git+https://github.com/SkyworkAI/SkyReels.git   # Official repo if needed
+diffusers
+transformers
+accelerate
+einops
+torch
+scipy
+tqdm
 
 # YouTube Upload
 google-api-python-client==2.108.0
