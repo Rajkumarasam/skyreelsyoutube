@@ -37,3 +37,4 @@ def get_daily_topic():
 
 if __name__ == "__main__":
     main()
+    
